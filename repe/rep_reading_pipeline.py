@@ -123,8 +123,10 @@ class RepReadingPipeline(Pipeline):
         if not isinstance(hidden_layers, list): 
             assert isinstance(hidden_layers, int)
             hidden_layers = [hidden_layers]
+        # hidden layers can be a list
         
         self._validate_params(n_difference, direction_method)
+        # difference must be 1 for clustermean
 
         # initialize a DirectionFinder
         direction_finder = DIRECTION_FINDERS[direction_method](**direction_finder_kwargs)
